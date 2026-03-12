@@ -644,10 +644,10 @@
         }
         const [field, dir] = sort.split("-");
         result = [...result].sort((a, b) => {
-          if (a.pinned && !b.pinned) return -1;
-          if (!a.pinned && b.pinned) return 1;
           if (a.pennResearcher && !b.pennResearcher) return -1;
           if (!a.pennResearcher && b.pennResearcher) return 1;
+          if (a.pinned && !b.pinned) return -1;
+          if (!a.pinned && b.pinned) return 1;
           let cmp;
           if (field === "year") {
             cmp = (a.year ?? 0) - (b.year ?? 0);
